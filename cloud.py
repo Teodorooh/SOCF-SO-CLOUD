@@ -6,6 +6,10 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "<h2>Servidor funcionando! Use /info ou /metricas</h2>"
+
 @app.route("/info")
 def info():
     nome = "Eduardo Teodoro Moreira de Souza"
