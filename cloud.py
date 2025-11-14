@@ -5,6 +5,7 @@ import psutil
 from flask import Flask, jsonify
 
 app = Flask(__name__)
+app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 
 @app.route("/")
 def home():
@@ -12,8 +13,10 @@ def home():
 
 @app.route("/info")
 def info():
-    nome = "Eduardo Teodoro Moreira de Souza"
-    return f"<h1>{nome}</h1>"
+    dados = {
+        "nome" : "Eduardo Teodoro Moreira de Souza"
+    }
+    return jsonify(dados)
 
 @app.route("/metricas")
 def metricas():
